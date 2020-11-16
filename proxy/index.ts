@@ -16,7 +16,16 @@ type Connection = {
 const args = parseArgs(process.argv.slice(2))
 
 const SERVERS = [
-  { language: 'ruby', host: process.env.RUBY_LANGUAGE_SERVER_HOST, port: Number(process.env.RUBY_LANGUAGE_SERVER_PORT) }
+  {
+    language: 'ruby',
+    host: process.env.RUBY_LANGUAGE_SERVER_HOST,
+    port: Number(process.env.RUBY_LANGUAGE_SERVER_PORT)
+  },
+  {
+    language: 'javascript',
+    host: process.env.JAVASCRIPT_LANGUAGE_SERVER_HOST,
+    port: Number(process.env.JAVASCRIPT_LANGUAGE_SERVER_PORT)
+  },
 ]
 let CONNECTIONS: Connection[] = []
 
