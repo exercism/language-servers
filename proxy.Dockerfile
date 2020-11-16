@@ -6,4 +6,4 @@ COPY proxy/index.ts proxy/package.json proxy/tsconfig.json ./
 RUN yarn install
 RUN npx tsc
 
-CMD node index.js --port 3000
+CMD node index.js --websocketPort 3023 --httpPort 4444
