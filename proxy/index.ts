@@ -26,6 +26,11 @@ const SERVERS = [
     host: process.env.JAVASCRIPT_LANGUAGE_SERVER_HOST,
     port: Number(process.env.JAVASCRIPT_LANGUAGE_SERVER_PORT)
   },
+  {
+    language: 'csharp',
+    host: process.env.CSHARP_LANGUAGE_SERVER_HOST,
+    port: Number(process.env.CSHARP_LANGUAGE_SERVER_PORT)
+  },
 ]
 let CONNECTIONS: Connection[] = []
 
