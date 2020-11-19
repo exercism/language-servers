@@ -2,9 +2,10 @@ FROM node
 
 WORKDIR /opt/exercism/csharp-language-server/current
 
-RUN curl -L -o omnisharp.tar.gz https://github.com/OmniSharp/omnisharp-roslyn/releases/download/1.37.3/omnisharp-linux-x64.tar.gz
+RUN curl -L -o omnisharp.tar.gz https://github.com/OmniSharp/omnisharp-roslyn/releases/download/v1.34.9/omnisharp-linux-x64.tar.gz
 RUN curl -L -o dotnet.tar.gz https://download.visualstudio.microsoft.com/download/pr/d731f991-8e68-4c7c-8ea0-fad5605b077a/49497b5420eecbd905158d86d738af64/dotnet-sdk-3.1.100-linux-x64.tar.gz
-RUN mkdir -p /opt/dotnet && tar -zxf dotnet.tar.gz -C /opt/dotnet
+RUN mkdir -p /opt/omnisharp && tar -xzf omnisharp.tar.gz -C /opt/omnisharp
+RUN mkdir -p /opt/dotnet && tar -xzf dotnet.tar.gz -C /opt/dotnet
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -29,4 +30,4 @@ COPY server/index.ts server/package.json server/tsconfig.json ./
 RUN yarn install
 RUN npx tsc
 
-CMD node index.js --command='./run' --commandArgs='-lsp' --port=8291
+CMD node index.js --command='/opt/omnisharp/run' --commandArgs='-lsp' --port=8291
